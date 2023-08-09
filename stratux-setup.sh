@@ -395,7 +395,7 @@ rm -rf stratux
 git clone https://github.com/cyoung/stratux --recursive
 cd stratux
 git fetch --tags
-tag=$(git describe --tags `git rev-list --tags --max-count=1`)
+tag=v1.4r5
 # checkout the latest release
 git checkout $tag
 export CGO_LDFLAGS=-L/usr/local/lib

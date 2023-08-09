@@ -1,0 +1,14 @@
+diff --git a/main/fancontrol.go b/main/fancontrol.go
+index 1b05ae2..39b26a3 100644
+--- a/main/fancontrol.go
++++ b/main/fancontrol.go
+@@ -174,7 +174,8 @@ func init() {
+ }
+ 
+ func main() {
+-	srv, err := daemon.New(name, description, []string{}...)
++	kind := daemon.SystemDaemon // or daemon.UserDaemon depending on your needs
++	srv, err := daemon.New(name, description, kind, []string{}...)
+ 	if err != nil {
+ 		errlog.Println("Error: ", err)
+ 		os.Exit(1)

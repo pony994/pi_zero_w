@@ -164,8 +164,9 @@ apt-get install -y pkg-config
 apt-get install -y libjpeg-dev i2c-tools python-smbus python-pip python-dev python-pil python-daemon screen
 apt-get install -y golang-go
 pip install wiringpi
-#apt-get purge golang*
-cd && git clone -b final_official_2.50 --single-branch https://github.com/WiringPi/WiringPi.git && cd WiringPi/wiringPi && make static && make install-static
+apt-get purge golang*
+apt-get install wiringpi
+#cd && git clone -b final_official_2.50 --single-branch https://github.com/WiringPi/WiringPi.git && cd WiringPi/wiringPi && make static && make install-static
 echo "${GREEN}...done${WHITE}"
 
 
@@ -402,6 +403,7 @@ tag=v1.4r5
 git checkout $tag
 export CGO_LDFLAGS=-L/usr/local/lib
 patch < /home/pi/pi_zero_w/godump978.patch godump978/godump978_exports.go
+patch < /home/pi/pi_zero_w/fancontrol.patch main/fancontrol.go
 make all
 make install
 

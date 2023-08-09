@@ -1,0 +1,13 @@
+diff --git a/godump978/godump978_exports.go b/godump978/godump978_exports.go
+index ef3c1a9..579e221 100644
+--- a/godump978/godump978_exports.go
++++ b/godump978/godump978_exports.go
+@@ -14,7 +14,7 @@ import (
+ )
+  
+ /*
+-#cgo CFLAGS: -L../
++#cgo CFLAGS: -I../
+ 
+ #include <stdint.h>
+ #include "../dump978/dump978.h"

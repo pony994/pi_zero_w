@@ -27,7 +27,9 @@ fi
 
 
 SCRIPTDIR="`pwd`"
-
+export GOPATH=$HOME/go
+export PATH=/usr/local/go/bin:$PATH:$GOPATH/bin
+export GOROOT=/usr/local/go
 #set -e
 
 #outfile=setuplog
@@ -298,13 +300,13 @@ if [[ ! "$PATH" =~ "/root/go_path/bin" ]]; then
 fi
 
 echo export GOROOT_BOOTSTRAP=/root/gobootstrap >>/root/.bashrc
-echo export GOPATH=/usr/lib/go/ >>/root/.bashrc
-echo export GOROOT=/usr/lib/go-1.7/ >>/root/.bashrc
-echo export PATH=${XPATH} >>/root/.bashrc
+#echo export GOPATH=/usr/lib/go/ >>/root/.bashrc
+#echo export GOROOT=/usr/lib/go-1.7/ >>/root/.bashrc
+#echo export PATH=${XPATH} >>/root/.bashrc
 
-export GOROOT_BOOTSTRAP=/root/gobootstrap
-export GOPATH=/usr/lib/go/
-export GOROOT=/usr/lib/go-1.7/
+echo export GOPATH=$HOME/go >>/root/.bashrc
+echo export GOROOT=/usr/local/go >>/root/.bashrc
+export GO111MODULE="off"
 export PATH=${PATH}:/usr/bin/
 source /root/.bashrc
 
@@ -399,6 +401,7 @@ tag=v1.4r5
 # checkout the latest release
 git checkout $tag
 export CGO_LDFLAGS=-L/usr/local/lib
+patch < /home/pi/pi_zero_w/godump978.patch godump978/godump978_exports.go
 make all
 make install
 

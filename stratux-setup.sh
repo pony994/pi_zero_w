@@ -402,8 +402,8 @@ tag=v1.6r1-eu029
 git checkout $tag
 export CGO_LDFLAGS=-L/usr/local/lib
 patch < /home/pi/pi_zero_w/godump978.patch godump978/godump978_exports.go
-# patch < /home/pi/pi_zero_w/fancontrol.patch main/fancontrol.go
-# patch < /home/pi/pi_zero_w/makefile.patch Makefile
+patch < /home/pi/pi_zero_w/fancontrol.patch main/fancontrol.go
+patch < /home/pi/pi_zero_w/makefile.patch Makefile
 make all
 make install
 

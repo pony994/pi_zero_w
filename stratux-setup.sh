@@ -305,11 +305,10 @@ echo export GOROOT_BOOTSTRAP=/root/gobootstrap >>/root/.bashrc
 #echo export GOROOT=/usr/lib/go-1.7/ >>/root/.bashrc
 #echo export PATH=${XPATH} >>/root/.bashrc
 
-echo export GOPATH=$HOME/go >>/root/.bashrc
-echo export GOROOT=/usr/local/go >>/root/.bashrc
+echo "export GOPATH=＄HOME/work" >> ~/.bashrc 
+echo "export PATH=＄PATH:/usr/local/go/bin:＄GOPATH/bin" >> ~/.bashrc
+source ~/.bashrc
 export GO111MODULE="off"
-export PATH=${PATH}:/usr/bin/
-source /root/.bashrc
 
 echo "${GREEN}...done${WHITE}"
 

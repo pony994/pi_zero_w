@@ -397,13 +397,13 @@ rm -rf stratux
 git clone https://github.com/cyoung/stratux --recursive
 cd stratux
 git fetch --tags
-tag=v1.4r5
+tag=v1.6r1-eu029
 # checkout the latest release
 git checkout $tag
 export CGO_LDFLAGS=-L/usr/local/lib
-patch < /home/pi/pi_zero_w/godump978.patch godump978/godump978_exports.go
-patch < /home/pi/pi_zero_w/fancontrol.patch main/fancontrol.go
-patch < /home/pi/pi_zero_w/makefile.patch Makefile
+# patch < /home/pi/pi_zero_w/godump978.patch godump978/godump978_exports.go
+# patch < /home/pi/pi_zero_w/fancontrol.patch main/fancontrol.go
+# patch < /home/pi/pi_zero_w/makefile.patch Makefile
 make all
 make install
 
